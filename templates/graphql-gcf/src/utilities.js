@@ -77,7 +77,7 @@ module.exports = {
                 p = fn();
             return p;
         };
-    }
+    },
 
     leftJoin: (col_1, col_1_key, col_2, col_2_key, col_2_valuekey) => {
         return _(col_1).reduce((a, b) => {

@@ -1,9 +1,9 @@
 TIMEFORMAT=%R
 time {
-	f="main"
-	bucket="your-playground"
-	trigger="--trigger-http"
-	gf="your-google-cloud-function-name"
+	f="{{project-function}}"
+	bucket="{{project-bucket}}"
+	trigger="{{project-tigger}}"
+	gf="{{gcf-name}}"
 
 	if [[ $1 == "dev" ]]; then
 		# In dev mode, make sure that the functions local server is running, and then deploy the function

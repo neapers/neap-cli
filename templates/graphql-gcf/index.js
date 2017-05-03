@@ -22,7 +22,7 @@ const graphql_options = {
  // exports.main = (req, res) => {
  // 	return res.status(200).send(a);
  // }
-exports.main = graphiQL.serveHTTP(graphql_options, (req, res, results) => {
+exports.{{project-function}} = graphiQL.serveHTTP(graphql_options, (req, res, results) => {
 	//u.log(u.shortRequest(req), "REQUEST");
 	//Some code to inspect req, res, or results
 });

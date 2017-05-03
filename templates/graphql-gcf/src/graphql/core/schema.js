@@ -44,3 +44,9 @@ type DatasetSize {
 	pages: Int!
 }
 `
+
+exports.query = `
+  # ### GET a dummy Page object for the sake of this template demo.
+  #
+  dummyPage: Page
+`

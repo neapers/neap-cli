@@ -1,6 +1,6 @@
 {
-  "name": "quivers-graphhub",
-  "version": "0.0.1",
+  "name": "{{project-name}}",
+  "version": "{{project-version}}",
   "scripts": {
     "postinstall": "npm dedupe"
   },

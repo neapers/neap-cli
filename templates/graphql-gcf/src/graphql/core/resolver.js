@@ -53,6 +53,14 @@ const getTotal = (args) => {
 
 module.exports = {
 
+    root: {
+        Query: {
+            dummyPage(root, args, context) {
+                return Promise.resolve({ first: 10, skip: 20, getTotalSize: () => Promise.resolve(320) });
+            }
+        }
+    },
+
     dependencies: {
         Page: {
             first(root, args, context) { return Promise.resolve(getFirst(root)); },

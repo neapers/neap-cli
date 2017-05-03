@@ -21,15 +21,21 @@ const _enum = require('../enum/enum.js');
  * ///////////////////////////////////////////////////////////////////////////////////////////////
  */
 
-const getSomeQueryResult = (args, { sql }) => getYourDataFromYourDB()
+const getSomeResults = (args, context) => getSomeDataInAPromise(args, context)
 .then(
     results => _(results).map(mapper),
     err => { throw err }
 );
 
-const getSomeResult = (args, { sql }) => getYourDataFromYourDB()
+const getSomeOtherResults = (args, context) => getSomeOtherDataInAPromise(args, context)
 .then(
     results => _(results).map(mapper),
+    err => { throw err }
+);
+
+const countItems = (args, context) => countDataInAPromise(args, context)
+.then(.then(
+    results => _(results).map('Count').first(),
     err => { throw err }
 );
 
@@ -55,16 +61,28 @@ module.exports = {
 
     root: {
         Query: {
-            yourQuery(root, args, context) {
-                return getSomeQueryResult();
+            newModelById(root, args, context) {
+                return getSomeResults();
+            },
+
+            newModels(root, args, context) {
+                return getSomeOtherResults(args, context)
+                .then(results => {
+                        const getTotalSize = () => countItems(args);
+                        return { __proto__: results, page: core.Page(args, getTotalSize) };
+                    };
+                }
             }
         }
     },
 
     dependencies: {
-        YourDependency: {
-            property(root, args, context) {
-                return getSomeResult();
+        NewPagedModels: {
+            data(root, args, context){
+                return Promise.resolve(root);
+            },
+            page(root, args, context) {
+                return Promise.resolve(root.page);
             }
         }
     }
