@@ -1,0 +1,16 @@
+{
+  "name": "neap-cli",
+  "version": "1.0.0",
+  "description": "Helps creating projects using GraphQl and Google Cloud Platform projects",
+  "main": "index.js",
+  "bin": {
+    "neap": "./index.js"
+  },
+  "author": "Nicolas Dao",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "ncp": "^2.0.0"
+  }
+}

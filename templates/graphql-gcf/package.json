@@ -1,0 +1,14 @@
+{
+  "name": "quivers-graphhub",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "npm dedupe"
+  },
+  "dependencies": {
+    "google-graphql-functions": "0.0.x",
+    "graphql": "^0.9.3",
+    "graphql-tools": "^0.11.0",
+    "lodash": "^4.17.4",
+    "uuid": "^3.0.1"
+  }
+}
