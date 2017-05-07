@@ -2,7 +2,7 @@ const colors = require('colors');
 const replace = require("replace");
 const _ = require('lodash');
 const path = require("path");
-const u = require('../utilities');
+const u = require('../../utilities');
 const askQuestion = u.askQuestion;
 const createDir = u.createDir;
 const copyFolderContent = u.copyFolderContent;
@@ -13,7 +13,7 @@ const copyFolderContent = u.copyFolderContent;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const create = () => {
+const startForm = () => {
     const firstQ = () => askQuestion(
             "name: ")
         .then(answer => {
@@ -114,7 +114,7 @@ const create = () => {
 
 
 const createFilesAndFolders = ({ projectname, projectversion, projectfn, bucket, trigger, gcfname }) => {
-    const src = path.join(__dirname, "../" ,"templates/graphql-gcf");
+    const src = path.join(__dirname, "../../" ,"templates/graphql-gcf");
     const dest = `${process.cwd()}/${projectname}`;
 
     createDir(dest);
@@ -169,10 +169,11 @@ const createFilesAndFolders = ({ projectname, projectversion, projectfn, bucket,
                 });
 
                 console.log(`New GraphQl project '${projectname}' for Google Cloud Functions successfully created.`.green);
+                process.exit(1);
             }
         }); 
 }
 
 module.exports = {
-    create: create
+    startForm: startForm
 }

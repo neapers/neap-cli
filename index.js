@@ -3,11 +3,12 @@
 const program = require('commander');
 const colors = require('colors');
 const _ = require('lodash');
-const graphqlGCF = require('./project_creators/graphql-gcf');
+const graphqlGCF = require('./src/graphql-gcf/cli-form');
+const firebase = require('./src/firebase/index');
 const askQuestion = require('./utilities').askQuestion;
 
 
-const createProjects = [graphqlGCF];
+const createProjects = [graphqlGCF, firebase];
 
 program
     .version('1.0.0')
@@ -16,7 +17,7 @@ program
         const startQuestions = () => askQuestion(
                 "Available project types: \n" +
                 " [1] GraphQl hosted on Google Cloud Functions\n" +
-                " [2] Something else \n" +
+                " [2] Firebase DB Manager \n" +
                 "Choose one of those: ([1]) ")
             .then(answer => {
                 if (answer == "") answer = 1;
@@ -25,12 +26,14 @@ program
                     console.log(`'${a}' is not a valid project type.`.red);
                     startQuestions();
                 } else {
-                    createProjects[a - 1].create();
+                    createProjects[a - 1].startForm();
                 }
             });
 
         startQuestions();
     });
+
+firebase.addCommands(program);
 
 program.parse(process.argv); // notice that we have to parse in a new statement.
 
