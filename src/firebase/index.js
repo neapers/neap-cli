@@ -28,7 +28,7 @@ const getFirebaseMethods = () => {
 const addCommands = (program) => {
 
     program
-    .command('push <location> <file>')
+    .command('db:push <location> <file>')
     .action(function(location, file) {
         const fb = getFirebaseMethods();
         loadData(file)
@@ -52,7 +52,7 @@ const addCommands = (program) => {
     });
 
     program
-    .command('set <location> <file>')
+    .command('db:set <location> <file>')
     .action(function(location, file) {
         const fb = getFirebaseMethods();
         loadData(file)
@@ -75,7 +75,7 @@ const addCommands = (program) => {
     });
 
     program
-    .command('rm <location>')
+    .command('db:rm <location>')
     .action(function(location) {
         const fb = getFirebaseMethods();
         const chrono = u.getChrono().start();
@@ -87,7 +87,7 @@ const addCommands = (program) => {
     });
 
     program
-    .command('ls <location>')
+    .command('db:ls <location>')
     .action(function(location) {
         const fb = getFirebaseMethods();
         const chrono = u.getChrono().start();
@@ -101,7 +101,7 @@ const addCommands = (program) => {
     });
 
     program
-    .command('get <location>')
+    .command('db:get <location>')
     .usage('<location> [option]   WARNING: When using firebase keys to query your DB, prefix it with an hyphen \'-\' \n' +
         '                                   ' +
         '(e.g. replace \'-KjM0clGqdy-TMlsp_kv\' with \'--KjM0clGqdy-TMlsp_kv\'). Otherwise, \n' +

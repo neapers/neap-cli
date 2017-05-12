@@ -70,8 +70,8 @@ module.exports = {
                 .then(results => {
                         const getTotalSize = () => countItems(args);
                         return { __proto__: results, page: core.Page(args, getTotalSize) };
-                    };
-                }
+                    }
+                );
             }
         }
     },

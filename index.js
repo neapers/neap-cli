@@ -12,7 +12,7 @@ const createProjects = [graphqlGCF, firebase];
 
 program
     .version('1.0.0')
-    .command('init')
+    .command('Create Neap projects, i.e. projects built using Firebase, GraphQl and the Google Cloud Platform.')
     .action(function() {
         const startQuestions = () => askQuestion(
                 "Available project types: \n" +
