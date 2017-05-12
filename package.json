@@ -1,13 +1,24 @@
 {
   "name": "neap-cli",
-  "version": "1.0.0",
-  "description": "Helps creating projects using GraphQl and Google Cloud Platform projects",
+  "version": "0.0.1",
+  "description": "Create Neap projects, i.e. projects built using Firebase, GraphQl and the Google Cloud Platform.",
   "main": "index.js",
   "bin": {
     "neap": "./index.js"
   },
+  "contributors": [
+    "Nicolas Dao <nic@neap.co> (https://neap.co/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neapers/neap-cli.git"
+  },
   "author": "Nicolas Dao",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/neapers/neap-cli/issues"
+  },
+  "homepage": "https://github.com/neapers/neap-cli#readme",
   "dependencies": {
     "axios": "^0.16.1",
     "cli-spinner": "^0.2.6",
