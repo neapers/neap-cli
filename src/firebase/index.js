@@ -41,7 +41,7 @@ const addCommands = (program) => {
                     const values = JSON.parse(data);
                     if (values.length) {
                         const chrono = u.getChrono().start();
-                        fb.pushMany(location + prefix, values)
+                        fb.pushMany(location, values)
                             .then(results => {
                                 const ellaspsedTime = chrono.measure();
                                 exit(console.log(`The ${results.length} objects contained in the '${file}' have been successfully added under the '${location}' in ${ellaspsedTime} ms.`.green));
