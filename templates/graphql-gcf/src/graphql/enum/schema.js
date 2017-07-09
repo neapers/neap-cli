@@ -1,14 +1,4 @@
 exports.type = `
-enum VariantSort {
-  ID
-  NAME
-}
-
-enum ProductSort {
-  ID
-  NAME
-}
-
 enum OptionType {
 	DROPDOWNLIST
  	RADIOLIST 

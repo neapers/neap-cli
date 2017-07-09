@@ -1,8 +1,10 @@
-// Copyright (c) 2017, Neap pty ltd.
-// All rights reserved.
-// This source code is licensed under the BSD-style license found in the
-// LICENSE file in the root directory of this source tree.
-
+/**
+ * Copyright (c) 2017, Neap Pty Ltd.
+ * All rights reserved.
+ * 
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+*/
 const colors = require('colors');
 const replace = require("replace");
 const _ = require('lodash');

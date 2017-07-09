@@ -8,11 +8,12 @@ const program = require('commander');
 const colors = require('colors');
 const _ = require('lodash');
 const graphqlGCF = require('./src/graphql-gcf/cli-form');
+const GCF = require('./src/gcf/cli-form');
 const firebase = require('./src/firebase/index');
 const askQuestion = require('./utilities').askQuestion;
 
 
-const createProjects = [graphqlGCF, firebase];
+const createProjects = [graphqlGCF, firebase, GCF];
 
 program
     .version('1.0.0')
@@ -22,6 +23,7 @@ program
                 "Available project types: \n" +
                 " [1] GraphQl hosted on Google Cloud Functions\n" +
                 " [2] Firebase DB Manager \n" +
+                " [3] Google Cloud Function (blank) \n" +
                 "Choose one of those: ([1]) ")
             .then(answer => {
                 if (answer == "") answer = 1;

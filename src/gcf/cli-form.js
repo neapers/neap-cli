@@ -134,7 +134,7 @@ const startForm = () => {
 
 
 const createFilesAndFolders = ({ projectname, projectversion, projectfn, bucket, trigger, gcfname, gcp }) => {
-    const src = path.join(__dirname, "../../" ,"templates/graphql-gcf");
+    const src = path.join(__dirname, "../../" ,"templates/gcf");
     const dest = `${process.cwd()}/${projectname}`;
 
     createDir(dest);
@@ -195,7 +195,7 @@ const createFilesAndFolders = ({ projectname, projectversion, projectfn, bucket,
                     silent: true,
                 });
 
-                console.log(`New GraphQl project '${projectname}' for Google Cloud Functions successfully created.`.green);
+                console.log(`New Google Cloud Function project '${projectname.italic.bold}' successfully created.`.green);
                 process.exit(1);
             }
         }); 

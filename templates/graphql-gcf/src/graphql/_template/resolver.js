@@ -5,6 +5,8 @@ const defaultVal = require('../../default');
 const core = require('../core/core.js');
 const _enum = require('../enum/enum.js');
 
+const PAGING = defaultVal.PAGING;
+
 /*************************************************************************************************
  * ///////////////////////////////////////////////////////////////////////////////////////////////
  * ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,23 +23,26 @@ const _enum = require('../enum/enum.js');
  * ///////////////////////////////////////////////////////////////////////////////////////////////
  */
 
-const getSomeResults = (args, context) => getSomeDataInAPromise(args, context)
-.then(
-    results => _(results).map(mapper),
-    err => { throw err }
-);
+const getSomeResults = (args, context) => 
+    getSomeDataInAPromise(args, context)
+    .then(
+        results => _(results).map(mapper),
+        err => { throw err }
+    );
 
-const getSomeOtherResults = (args, context) => getSomeOtherDataInAPromise(args, context)
-.then(
-    results => _(results).map(mapper),
-    err => { throw err }
-);
+const getSomeOtherResults = (args, context) => 
+    getSomeOtherDataInAPromise(args, context)
+    .then(
+        results => _(results).map(mapper),
+        err => { throw err }
+    );
 
-const countItems = (args, context) => countDataInAPromise(args, context)
-.then(.then(
-    results => _(results).map('Count').first(),
-    err => { throw err }
-);
+const countItems = (args, context) => 
+    countDataInAPromise(args, context)
+    .then(.then(
+        results => _(results).map('Count').first(),
+        err => { throw err }
+    );
 
 /**
  * ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -62,13 +67,28 @@ module.exports = {
     root: {
         Query: {
             newModelById(root, args, context) {
-                return getSomeResults();
+                return getSomeResults(args, context);
             },
 
             newModels(root, args, context) {
                 return getSomeOtherResults(args, context)
                 .then(results => {
-                        const getTotalSize = () => countItems(args);
+                        const getTotalSize = () => countItems(args, context);
+                        return { __proto__: results, page: core.Page(args, getTotalSize) };
+                    }
+                );
+            }
+        },
+
+        Mutation: {
+            newModelById(root, args, context) {
+                return getSomeResults(args, context);
+            },
+
+            newModels(root, args, context) {
+                return getSomeOtherResults(args, context)
+                .then(results => {
+                        const getTotalSize = () => countItems(args, context);
                         return { __proto__: results, page: core.Page(args, getTotalSize) };
                     }
                 );

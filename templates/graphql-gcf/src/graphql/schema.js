@@ -14,6 +14,7 @@ const resolvers = _(modelFolders).filter(f => fs.existsSync(`${__dirname}/${f}/r
 
 // 2. Combine all schemas into singles strings
 const schemaStringQueries = schemas.filter(s => s.query != null && s.query != undefined && s.query != "").map('query').join('');
+const schemaStringMutations = schemas.filter(s => s.mutation != null && s.mutation != undefined && s.mutation != "").map('mutation').join('');
 const schemaStringTypes = schemas.filter(s => s.type != null && s.type != undefined && s.type != "").map('type').join('');
 
 const schema = `
@@ -29,8 +30,8 @@ type Query {
 ${schemaStringQueries}
 }
 
-schema {
-  query: Query
+type Mutation {
+${schemaStringMutations}
 }
 `;
 
