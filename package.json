@@ -18,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/neapers/neap-cli/issues"
   },
+  "scripts": {
+    "release": "standard-version"
+  },
   "homepage": "https://github.com/neapers/neap-cli#readme",
   "dependencies": {
     "axios": "^0.16.1",
