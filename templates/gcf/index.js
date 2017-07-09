@@ -6,6 +6,6 @@ const { log, http } = require('./src/utilities')
  * @param {!Object} req Cloud Function request context.
  * @param {!Object} res Cloud Function response context.
  */
-exports.main = (req, res) => {
-	return res.status(200).send(a);
+exports.{{GCFmainFunc}} = (req, res) => {
+	return res.status(200).send('Hello World');
 }

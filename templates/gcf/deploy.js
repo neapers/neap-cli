@@ -41,11 +41,11 @@ if (!env) { // Local environment. Make Sure the Google function emulator is runn
 		shell.exec(`functions start`)
 	}
 
-	console.log(`${'LOCALLY'.italic.bold} deploying function ${config.GCFmainFunc.italic.bold} using trigger type ${config.GCFtrigger.italic.bold}`.cyan)
+	console.log(`${'LOCALLY'.italic.bold} deploying entry-point ${config.GCFmainFunc.italic.bold} using trigger type ${config.GCFtrigger.italic.bold}`.cyan)
 	shell.exec(`functions deploy ${config.GCFmainFunc} ${config.GCFtrigger}`)
 }
 else {
-	console.log(`Deploying function ${config.GCFmainFunc.italic.bold} to ${`GOOGLE CLOUD FUNCTION ${config.GCFname}`.italic.bold} located in project ${config.GCPproject.italic.bold} using trigger type ${config.GCFtrigger.italic.bold}`.cyan)
+	console.log(`Deploying entry-point ${config.GCFmainFunc.italic.bold} to ${`GOOGLE CLOUD FUNCTION ${config.GCFname}`.italic.bold} located in project ${config.GCPproject.italic.bold} using trigger type ${config.GCFtrigger.italic.bold}`.cyan)
 	shell.exec(`gcloud config set project ${config.GCPproject}`)
 	shell.exec(`gcloud beta functions deploy ${config.GCFname} --stage-bucket ${config.GCPbucket} ${config.GCFtrigger} --entry-point ${config.GCFmainFunc}`)
 }

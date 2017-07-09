@@ -44,7 +44,7 @@ const startForm = () => {
         });
 
     const thirdQ = (options) => askQuestion(
-            `Google Cloud Function function name (no spaces, no hyphens): (${options.projectname.replace(" ", "").replace("-", "")}) `)
+            `Google Cloud Function entry-point (no spaces, no hyphens): (${options.projectname.replace(" ", "").replace("-", "")}) `)
         .then(answer => {
             if (!answer || answer == "")
                 options.projectfn = options.projectname.replace(" ", "").replace("-", "");
