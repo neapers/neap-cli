@@ -28,7 +28,7 @@ program
             .then(answer => {
                 if (answer == "") answer = 1;
                 const a = _.toNumber(answer);
-                if (a != 1 && a != 2) {
+                if (a != 1 && a != 2 && a != 3) {
                     console.log(`'${a}' is not a valid project type.`.red);
                     startQuestions();
                 } else {
